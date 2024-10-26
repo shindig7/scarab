@@ -1,0 +1,30 @@
+[tool.poetry]
+name = "scarab"
+version = "0.1.0"
+description = ""
+authors = ["Jonathan Law <jonathan.law@hey.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.13"
+selenium = "^4.25.0"
+requests = "^2.32.3"
+parsel = "^1.9.1"
+webdriver-manager = "^4.0.2"
+loguru = "^0.7.2"
+aiohttp = "^3.10.10"
+
+[tool.poetry.group.dev.dependencies]
+isort = "^5.13.2"
+black = "^24.10.0"
+ruff = "^0.7.0"
+pytest = {extras = ["cov"], version = "^8.3.3"}
+pytest-cov = "^5.0.0"
+pytest-asyncio = "^0.24.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.black]
+line-length = 79
