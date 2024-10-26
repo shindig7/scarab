@@ -1,4 +1,3 @@
-from loguru import logger
 from pytest import fixture, mark
 from pytest import raises as pytest_raises
 
