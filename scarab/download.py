@@ -3,9 +3,11 @@ import filetype
 import pathlib
 from loguru import logger
 from uuid import uuid4
+import os
+import datetime
 
 
-def download_file(url: str, filename: str | None = None, fix_extension: bool = True) -> None:
+def download_file(url: str, filename: str | None = None, fix_extension: bool = True, set_modification_date: bool = True) -> None:
     """ Download a file from a URL and save it to a file.
 
     Args:
@@ -37,6 +39,13 @@ def download_file(url: str, filename: str | None = None, fix_extension: bool = T
                 new_filename = pathlib.Path(filename).with_suffix(f".{extension}")
                 pathlib.Path(filename).replace(new_filename)
                 logger.debug(f"Renamed file to {new_filename}") 
+
+        if set_modification_date:
+            final_filename = new_filename or filename
+            logger.debug(f"Setting modification date for {final_filename}")
+            epoch = datetime.datetime.now().timestamp()
+            os.utime(final_filename, (epoch, epoch))
+
     except Exception as e:
         logger.error(f"Failed to download file from {url}")
         logger.error(e)
