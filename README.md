@@ -27,8 +27,8 @@ _Author: Jonathan Law_
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/yourusername/crawler-suite.git
-   cd crawler-suite
+   git clone https://github.com/shindig7/scarab.git
+   cd scarab
    ```
 
 2. Install dependencies:
